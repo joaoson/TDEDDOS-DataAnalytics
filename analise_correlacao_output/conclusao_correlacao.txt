@@ -1,0 +1,54 @@
+====================================================================================================
+CONCLUSÃO DA ANÁLISE DE CORRELAÇÃO DE PEARSON
+====================================================================================================
+
+RESUMO ESTATÍSTICO:
+----------------------------------------------------------------------------------------------------
+• Total de pares de variáveis analisados: 2,701
+• Correlação média: 0.0784
+• Correlação mediana: 0.0003
+• Correlações muito fortes (|r| ≥ 0.9): 51
+• Correlações fortes (0.7 ≤ |r| < 0.9): 78
+• Correlações moderadas (0.5 ≤ |r| < 0.7): 93
+
+PRINCIPAIS DESCOBERTAS:
+----------------------------------------------------------------------------------------------------
+1. Foram identificadas 129 correlações fortes (|r| ≥ 0.7), indicando:
+   • Relações lineares significativas entre essas variáveis
+   • Possível redundância de informação (multicolinearidade)
+   • Oportunidade de redução de dimensionalidade
+
+2. Distribuição das correlações fortes:
+   • Correlações positivas: 127 (98.4%)
+   • Correlações negativas: 2 (1.6%)
+
+3. Top 3 correlações mais fortes:
+   1. Tot Fwd Pkts e Subflow Fwd Pkts (r = 1.0000) - aumentam juntas
+   2. TotLen Fwd Pkts e Subflow Fwd Byts (r = 1.0000) - aumentam juntas
+   3. TotLen Bwd Pkts e Subflow Bwd Byts (r = 1.0000) - aumentam juntas
+
+IMPACTO E RECOMENDAÇÕES:
+----------------------------------------------------------------------------------------------------
+1. Multicolinearidade: Variáveis altamente correlacionadas podem:
+   • Inflacionar a variância dos coeficientes em modelos de regressão
+   • Tornar a interpretação dos modelos mais difícil
+   • Sugerir que algumas variáveis podem ser removidas sem perda significativa de informação
+
+2. Redução de Dimensionalidade:
+   • Considere aplicar técnicas como PCA ou seleção de features
+   • Remova variáveis redundantes para simplificar modelos
+
+3. Análise de Features:
+   • Variáveis com correlação muito alta (|r| > 0.95) podem ser consideradas redundantes
+   • Mantenha apenas uma delas ou crie uma variável combinada
+
+4. Visualização:
+   • Os heatmaps gerados mostram padrões de correlação visualmente
+   • Use o heatmap completo para visão geral
+   • Use o heatmap top 30 para análise detalhada das variáveis mais relevantes
+
+====================================================================================================
+CONCLUSÃO FINAL
+====================================================================================================
+
+A análise revelou 129 correlações fortes entre variáveis, indicando que há redundância de informação no dataset. Recomenda-se aplicar técnicas de redução de dimensionalidade ou seleção de features antes de construir modelos preditivos. As correlações identificadas podem ser exploradas para melhor compreensão das relações entre as características do tráfego de rede.

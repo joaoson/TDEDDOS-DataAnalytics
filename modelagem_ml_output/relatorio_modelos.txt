@@ -1,0 +1,56 @@
+================================================================================
+RELATÓRIO DE MODELAGEM - MACHINE LEARNING
+================================================================================
+
+Total de features utilizadas: 48
+Total de modelos treinados: 3
+
+================================================================================
+RESULTADOS POR MODELO
+================================================================================
+
+
+Random Forest:
+--------------------------------------------------------------------------------
+Accuracy:  0.9994
+Precision: 0.9994
+Recall:    0.9994
+F1-Score:  0.9994
+ROC-AUC:   1.0000
+
+Matriz de Confusão:
+                Predito
+              Benign  DDoS
+Real Benign    49242    48
+     DDoS          8 50702
+
+
+Logistic Regression:
+--------------------------------------------------------------------------------
+Accuracy:  0.9859
+Precision: 0.9859
+Recall:    0.9859
+F1-Score:  0.9859
+ROC-AUC:   0.9962
+
+Matriz de Confusão:
+                Predito
+              Benign  DDoS
+Real Benign    48514   776
+     DDoS        631 50079
+
+
+SVM:
+--------------------------------------------------------------------------------
+Accuracy:  0.9940
+Precision: 0.9941
+Recall:    0.9940
+F1-Score:  0.9941
+ROC-AUC:   0.9990
+
+Matriz de Confusão:
+                Predito
+              Benign  DDoS
+Real Benign     9651    43
+     DDoS         76 10230
+

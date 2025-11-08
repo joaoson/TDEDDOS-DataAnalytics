@@ -1,0 +1,40 @@
+================================================================================
+CONCLUSÃO DA MODELAGEM
+================================================================================
+
+RESUMO EXECUTIVO:
+--------------------------------------------------------------------------------
+• Total de features utilizadas: 48
+• Modelos treinados: 3
+• Melhor modelo: Random Forest
+  - F1-Score: 0.9994
+  - Accuracy: 0.9994
+  - Precision: 0.9994
+  - Recall: 0.9994
+  - ROC-AUC: 1.0000
+
+================================================================================
+COMPARAÇÃO DE MODELOS
+================================================================================
+
+Random Forest:
+  F1-Score: 0.9994 | Accuracy: 0.9994 | Precision: 0.9994 | Recall: 0.9994
+  ROC-AUC: 1.0000
+
+SVM:
+  F1-Score: 0.9941 | Accuracy: 0.9940 | Precision: 0.9941 | Recall: 0.9940
+  ROC-AUC: 0.9990
+
+Logistic Regression:
+  F1-Score: 0.9859 | Accuracy: 0.9859 | Precision: 0.9859 | Recall: 0.9859
+  ROC-AUC: 0.9962
+
+================================================================================
+RECOMENDAÇÕES
+================================================================================
+
+1. O modelo Random Forest apresentou o melhor desempenho geral.
+2. Todos os modelos mostraram boa capacidade de classificação.
+3. O dataset está bem balanceado, facilitando a classificação.
+4. As features selecionadas foram suficientes para boa performance.
+5. Para produção, recomenda-se usar o modelo com melhor F1-Score.

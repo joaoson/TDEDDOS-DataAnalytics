@@ -1,0 +1,108 @@
+====================================================================================================
+RELATÓRIO DE ANÁLISE DE CORRELAÇÃO DE PEARSON
+====================================================================================================
+
+Total de variáveis analisadas: 74
+Total de pares de variáveis: 2701
+
+====================================================================================================
+ESTATÍSTICAS GERAIS DAS CORRELAÇÕES
+====================================================================================================
+
+Média das correlações: 0.0784
+Mediana das correlações: 0.0003
+Desvio padrão das correlações: 0.2434
+Correlação mínima: -0.8985
+Correlação máxima: 1.0000
+
+====================================================================================================
+DISTRIBUIÇÃO DE CORRELAÇÕES
+====================================================================================================
+
+Correlações muito fortes (|r| >= 0.9): 51
+Correlações fortes (0.7 <= |r| < 0.9): 78
+Correlações moderadas (0.5 <= |r| < 0.7): 93
+Correlações fracas (0.3 <= |r| < 0.5): 134
+Correlações muito fracas (|r| < 0.3): 2345
+
+====================================================================================================
+CORRELAÇÕES FORTES (|r| >= 0.7)
+====================================================================================================
+
+Total de correlações fortes encontradas: 129
+
+  1. Tot Fwd Pkts                   <-> Subflow Fwd Pkts               | r =  1.0000 (positiva)
+  2. TotLen Fwd Pkts                <-> Subflow Fwd Byts               | r =  1.0000 (positiva)
+  3. TotLen Bwd Pkts                <-> Subflow Bwd Byts               | r =  1.0000 (positiva)
+  4. Fwd Pkt Len Mean               <-> Fwd Seg Size Avg               | r =  1.0000 (positiva)
+  5. Bwd Pkt Len Mean               <-> Bwd Seg Size Avg               | r =  1.0000 (positiva)
+  6. Tot Bwd Pkts                   <-> Subflow Bwd Pkts               | r =  1.0000 (positiva)
+  7. Subflow Fwd Pkts               <-> Fwd Act Data Pkts              | r =  0.9998 (positiva)
+  8. Tot Fwd Pkts                   <-> Fwd Act Data Pkts              | r =  0.9998 (positiva)
+  9. Tot Bwd Pkts                   <-> Bwd Header Len                 | r =  0.9997 (positiva)
+ 10. Bwd Header Len                 <-> Subflow Bwd Pkts               | r =  0.9997 (positiva)
+ 11. TotLen Fwd Pkts                <-> Fwd Act Data Pkts              | r =  0.9996 (positiva)
+ 12. Subflow Fwd Byts               <-> Fwd Act Data Pkts              | r =  0.9996 (positiva)
+ 13. Tot Fwd Pkts                   <-> TotLen Fwd Pkts                | r =  0.9994 (positiva)
+ 14. Subflow Fwd Pkts               <-> Subflow Fwd Byts               | r =  0.9994 (positiva)
+ 15. Tot Fwd Pkts                   <-> Subflow Fwd Byts               | r =  0.9994 (positiva)
+ 16. TotLen Fwd Pkts                <-> Subflow Fwd Pkts               | r =  0.9994 (positiva)
+ 17. Tot Fwd Pkts                   <-> Fwd Header Len                 | r =  0.9994 (positiva)
+ 18. Fwd Header Len                 <-> Subflow Fwd Pkts               | r =  0.9994 (positiva)
+ 19. Fwd Header Len                 <-> Fwd Act Data Pkts              | r =  0.9984 (positiva)
+ 20. TotLen Fwd Pkts                <-> Fwd Header Len                 | r =  0.9981 (positiva)
+ 21. Fwd Header Len                 <-> Subflow Fwd Byts               | r =  0.9981 (positiva)
+ 22. Idle Mean                      <-> Idle Min                       | r =  0.9957 (positiva)
+ 23. TotLen Bwd Pkts                <-> Subflow Bwd Pkts               | r =  0.9948 (positiva)
+ 24. Tot Bwd Pkts                   <-> Subflow Bwd Byts               | r =  0.9948 (positiva)
+ 25. Tot Bwd Pkts                   <-> TotLen Bwd Pkts                | r =  0.9948 (positiva)
+ 26. Subflow Bwd Pkts               <-> Subflow Bwd Byts               | r =  0.9948 (positiva)
+ 27. TotLen Bwd Pkts                <-> Bwd Header Len                 | r =  0.9945 (positiva)
+ 28. Bwd Header Len                 <-> Subflow Bwd Byts               | r =  0.9945 (positiva)
+ 29. Idle Mean                      <-> Idle Max                       | r =  0.9945 (positiva)
+ 30. Pkt Len Mean                   <-> Pkt Size Avg                   | r =  0.9938 (positiva)
+ 31. Flow IAT Mean                  <-> Flow IAT Min                   | r =  0.9824 (positiva)
+ 32. Idle Max                       <-> Idle Min                       | r =  0.9813 (positiva)
+ 33. Flow Duration                  <-> Fwd IAT Tot                    | r =  0.9789 (positiva)
+ 34. Flow IAT Min                   <-> Fwd IAT Min                    | r =  0.9783 (positiva)
+ 35. Pkt Len Max                    <-> Pkt Len Std                    | r =  0.9764 (positiva)
+ 36. Fwd IAT Mean                   <-> Fwd IAT Min                    | r =  0.9749 (positiva)
+ 37. Fwd Pkt Len Max                <-> Fwd Pkt Len Std                | r =  0.9746 (positiva)
+ 38. Flow IAT Mean                  <-> Fwd IAT Mean                   | r =  0.9720 (positiva)
+ 39. Flow IAT Mean                  <-> Fwd IAT Min                    | r =  0.9699 (positiva)
+ 40. Bwd Pkt Len Max                <-> Bwd Pkt Len Std                | r =  0.9675 (positiva)
+ 41. Fwd Pkt Len Mean               <-> Fwd Pkt Len Std                | r =  0.9672 (positiva)
+ 42. Fwd Pkt Len Std                <-> Fwd Seg Size Avg               | r =  0.9672 (positiva)
+ 43. Flow IAT Min                   <-> Fwd IAT Mean                   | r =  0.9529 (positiva)
+ 44. Fwd Pkt Len Max                <-> Fwd Seg Size Avg               | r =  0.9500 (positiva)
+ 45. Fwd Pkt Len Max                <-> Fwd Pkt Len Mean               | r =  0.9500 (positiva)
+ 46. Active Mean                    <-> Active Max                     | r =  0.9493 (positiva)
+ 47. Flow IAT Max                   <-> Idle Max                       | r =  0.9331 (positiva)
+ 48. Flow IAT Max                   <-> Idle Mean                      | r =  0.9280 (positiva)
+ 49. Flow IAT Max                   <-> Fwd IAT Max                    | r =  0.9257 (positiva)
+ 50. Flow IAT Max                   <-> Idle Min                       | r =  0.9160 (positiva)
+
+====================================================================================================
+TOP 20 CORRELAÇÕES MAIS FORTES
+====================================================================================================
+
+ 1. Tot Fwd Pkts                        <-> Subflow Fwd Pkts                    | r = +1.0000
+ 2. TotLen Fwd Pkts                     <-> Subflow Fwd Byts                    | r = +1.0000
+ 3. TotLen Bwd Pkts                     <-> Subflow Bwd Byts                    | r = +1.0000
+ 4. Fwd Pkt Len Mean                    <-> Fwd Seg Size Avg                    | r = +1.0000
+ 5. Bwd Pkt Len Mean                    <-> Bwd Seg Size Avg                    | r = +1.0000
+ 6. Tot Bwd Pkts                        <-> Subflow Bwd Pkts                    | r = +1.0000
+ 7. Subflow Fwd Pkts                    <-> Fwd Act Data Pkts                   | r = +0.9998
+ 8. Tot Fwd Pkts                        <-> Fwd Act Data Pkts                   | r = +0.9998
+ 9. Tot Bwd Pkts                        <-> Bwd Header Len                      | r = +0.9997
+10. Bwd Header Len                      <-> Subflow Bwd Pkts                    | r = +0.9997
+11. TotLen Fwd Pkts                     <-> Fwd Act Data Pkts                   | r = +0.9996
+12. Subflow Fwd Byts                    <-> Fwd Act Data Pkts                   | r = +0.9996
+13. Tot Fwd Pkts                        <-> TotLen Fwd Pkts                     | r = +0.9994
+14. Subflow Fwd Pkts                    <-> Subflow Fwd Byts                    | r = +0.9994
+15. Tot Fwd Pkts                        <-> Subflow Fwd Byts                    | r = +0.9994
+16. TotLen Fwd Pkts                     <-> Subflow Fwd Pkts                    | r = +0.9994
+17. Tot Fwd Pkts                        <-> Fwd Header Len                      | r = +0.9994
+18. Fwd Header Len                      <-> Subflow Fwd Pkts                    | r = +0.9994
+19. Fwd Header Len                      <-> Fwd Act Data Pkts                   | r = +0.9984
+20. TotLen Fwd Pkts                     <-> Fwd Header Len                      | r = +0.9981
