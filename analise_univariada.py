@@ -1,7 +1,3 @@
-"""
-Análise Univariada - Estatística Descritiva e Visualização
-Calcula métricas e gera histogramas para 10 variáveis numéricas
-"""
 
 import polars as pl
 import matplotlib.pyplot as plt
@@ -158,21 +154,21 @@ def main():
     
     # Ler arquivo parquet
     print("\n1. Carregando dados do arquivo parquet...")
-    df = pl.read_parquet("output.parquet")
+    df = pl.read_parquet("./ddos_balanced/balanced_reduzido.parquet")
     print(f"   Dataset carregado: {df.shape[0]:,} linhas x {df.shape[1]} colunas")
     
     # Selecionar 10 variáveis numéricas interessantes
     variaveis_selecionadas = [
         'Flow Duration',
-        'Tot Fwd Pkts',
-        'Tot Bwd Pkts',
+        'Fwd Act Data Pkts',
+        'Idle Mean',
         'Flow Byts/s',
         'Flow Pkts/s',
         'Fwd Pkt Len Mean',
         'Bwd Pkt Len Mean',
-        'Flow IAT Mean',
+        'Flow IAT Std',
         'Pkt Len Mean',
-        'Active Mean'
+        'Fwd Pkt Len Mean'
     ]
     
     # Verificar quais variáveis existem no dataset
