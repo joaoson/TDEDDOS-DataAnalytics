@@ -1,2 +1,5 @@
 ./final_dataset.csv
 output.parquet
+ddos_balanced/
+ddos_imbalanced/
+
