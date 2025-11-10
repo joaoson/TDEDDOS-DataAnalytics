@@ -1,8 +1,3 @@
-"""
-Análise de Correlação de Pearson
-Calcula correlações entre variáveis, converte categóricas para numéricas
-e apresenta análise detalhada do impacto das relações entre variáveis
-"""
 
 import polars as pl
 import matplotlib.pyplot as plt
@@ -65,30 +60,40 @@ def converter_categoricas_para_numericas(df):
     return df_encoded, mapeamentos
 
 def limpar_dados_para_correlacao(df):
-    """Remove colunas não numéricas e valores infinitos/NaN"""
+    """Remove colunas não numéricas, categóricas codificadas e a variável alvo 'Label'"""
     df_clean = df.clone()
-    
+
     # Remover coluna de índice vazia se existir
     if '' in df_clean.columns:
         df_clean = df_clean.drop('')
-    
-    # Converter todas as colunas para float64, removendo infinitos e NaN
-    colunas_numericas = [col for col in df_clean.columns 
-                        if df_clean[col].dtype in [pl.Int64, pl.Float64]]
-    
+
+    # Excluir variável alvo (Label) se existir
+    if 'Label' in df_clean.columns:
+        print("   Removendo coluna 'Label' (variável alvo) da análise de correlação...")
+        df_clean = df_clean.drop('Label')
+
+    # Selecionar apenas colunas numéricas
+    colunas_numericas = [
+        col for col in df_clean.columns
+        if df_clean[col].dtype in [pl.Int64, pl.Float64]
+    ]
+
+    print(f"   Mantendo {len(colunas_numericas)} colunas numéricas para correlação")
+
+    # Substituir infinitos e NaN por None
     for col in colunas_numericas:
-        # Substituir infinitos e NaN por None
         df_clean = df_clean.with_columns(
             pl.when(pl.col(col).is_infinite() | pl.col(col).is_nan())
             .then(None)
             .otherwise(pl.col(col))
             .alias(col)
         )
-    
-    # Manter apenas colunas numéricas
+
+    # Selecionar apenas as colunas válidas
     df_clean = df_clean.select(colunas_numericas)
-    
+
     return df_clean
+
 
 def calcular_matriz_correlacao(df):
     """Calcula matriz de correlação de Pearson usando método eficiente"""
@@ -127,16 +132,12 @@ def calcular_matriz_correlacao(df):
     return df_corr, matriz_corr, colunas
 
 def criar_heatmap_correlacao(matriz_corr, colunas, output_dir):
-    """Cria heatmap da matriz de correlação"""
+    """Cria heatmap QUADRADO da matriz de correlação (sem mascarar a metade superior)."""
     fig, ax = plt.subplots(figsize=(20, 16))
-    
-    # Criar heatmap
-    mask = np.triu(np.ones_like(matriz_corr, dtype=bool), k=1)  # Máscara para triângulo superior
-    
+
     sns.heatmap(
         matriz_corr,
-        mask=mask,
-        annot=False,  # Não anotar todos os valores (muitas variáveis)
+        annot=False,          # sem valores em cada célula (muita info)
         fmt='.2f',
         cmap='coolwarm',
         center=0,
@@ -147,29 +148,34 @@ def criar_heatmap_correlacao(matriz_corr, colunas, output_dir):
         yticklabels=colunas,
         ax=ax
     )
-    
-    ax.set_title('Matriz de Correlação de Pearson - Todas as Variáveis', 
-                 fontsize=16, fontweight='bold', pad=20)
+
+    ax.set_title(
+        'Matriz de Correlação de Pearson - Todas as Variáveis',
+        fontsize=16,
+        fontweight='bold',
+        pad=20
+    )
     plt.xticks(rotation=45, ha='right')
     plt.yticks(rotation=0)
-    
+
     plt.tight_layout()
     caminho_arquivo = output_dir / 'heatmap_correlacao_completo.png'
     plt.savefig(caminho_arquivo, dpi=300, bbox_inches='tight')
     plt.close()
-    
+
     print(f"   Heatmap completo salvo: {caminho_arquivo}")
-    
-    # Criar heatmap focado nas correlações mais fortes (top 30 variáveis)
+
+    # Mantém o heatmap focado no top 30 como está
     criar_heatmap_focado(matriz_corr, colunas, output_dir)
 
+
 def criar_heatmap_focado(matriz_corr, colunas, output_dir):
-    """Cria heatmap focado nas variáveis com maior variância de correlação"""
+    """Cria heatmap QUADRADO das 10 variáveis com maior variância das correlações."""
     # Calcular variância das correlações para cada variável
     var_corr = np.var(matriz_corr, axis=0)
     
-    # Selecionar top 30 variáveis com maior variância
-    top_indices = np.argsort(var_corr)[-30:][::-1]
+    # Selecionar top 10 variáveis com maior variância
+    top_indices = np.argsort(var_corr)[-10:][::-1]
     top_colunas = [colunas[i] for i in top_indices]
     
     # Extrair submatriz
@@ -177,11 +183,8 @@ def criar_heatmap_focado(matriz_corr, colunas, output_dir):
     
     fig, ax = plt.subplots(figsize=(14, 12))
     
-    mask = np.triu(np.ones_like(submatriz, dtype=bool), k=1)
-    
     sns.heatmap(
         submatriz,
-        mask=mask,
         annot=True,
         fmt='.2f',
         cmap='coolwarm',
@@ -194,17 +197,22 @@ def criar_heatmap_focado(matriz_corr, colunas, output_dir):
         ax=ax
     )
     
-    ax.set_title('Matriz de Correlação de Pearson - Top 30 Variáveis (Maior Variância)', 
-                 fontsize=14, fontweight='bold', pad=20)
+    ax.set_title(
+        'Matriz de Correlação de Pearson - Top 10 Variáveis (Maior Variância)',
+        fontsize=14,
+        fontweight='bold',
+        pad=20
+    )
     plt.xticks(rotation=45, ha='right')
     plt.yticks(rotation=0)
     
     plt.tight_layout()
-    caminho_arquivo = output_dir / 'heatmap_correlacao_top30.png'
+    caminho_arquivo = output_dir / 'heatmap_correlacao_top10.png'
     plt.savefig(caminho_arquivo, dpi=300, bbox_inches='tight')
     plt.close()
     
-    print(f"   Heatmap top 30 salvo: {caminho_arquivo}")
+    print(f"   Heatmap top 10 salvo: {caminho_arquivo}")
+
 
 def analisar_correlacoes_fortes(matriz_corr, colunas, threshold=0.7):
     """Identifica e analisa correlações fortes (acima do threshold)"""
@@ -415,7 +423,7 @@ def main():
     
     # Ler arquivo parquet
     print("\n1. Carregando dados do arquivo parquet...")
-    df = pl.read_parquet("output.parquet")
+    df = pl.read_parquet("./ddos_balanced/balanced_reduzido.parquet")
     print(f"   Dataset carregado: {df.shape[0]:,} linhas x {df.shape[1]} colunas")
     
     # Converter colunas categóricas para numéricas
