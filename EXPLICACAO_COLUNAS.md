@@ -476,24 +476,3 @@ Precisa de análise com modelo de ML para classificação precisa.
 
 ---
 
-## 💡 Dicas para Análise
-
-1. **Procure por padrões extremos**: valores de 0.0 ou muito altos são suspeitos
-2. **Verifique a combinação de features**: é raro um DDoS ter TODAS as características normais
-3. **Preste atenção em taxa de pacotes**: Flow Pkts/s é o indicador mais importante
-4. **Tamanho dos pacotes importa**: pacotes muito pequenos com alta taxa = ataque típico
-5. **Flags TCP contam a história**: FIN=0, SYN=1 pode indicar conexões mal formadas
-6. **Equilibrio Fwd/Bwd**: ataques têm desequilíbrio grande
-
----
-
-## 📈 Próximos Passos para Seu Trabalho
-
-Agora que você entende cada coluna, você pode:
-1. Explorar correlações entre features (quais estão relacionadas?)
-2. Visualizar a distribuição de cada feature para DDoS vs Legítimo
-3. Treinar modelos (Random Forest, XGBoost, etc) usando estas features
-4. Implementar técnicas de seleção de features para identificar as mais importantes
-5. Criar visualizações para comunicar achados no seu trabalho
-
-Boa sorte com seu projeto de detecção de DDoS! 🎯
