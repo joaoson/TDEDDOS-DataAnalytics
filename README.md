@@ -12,9 +12,6 @@ Projeto de análise de dados para detecção de ataques DDoS utilizando técnica
 
 ### 📂 Scripts Principais
 
-#### `main.py`
-Script principal do projeto. Atualmente contém código para conversão de CSV para Parquet usando Polars.
-
 #### `analise_univariada.py`
 Script para análise univariada dos dados. Realiza:
 - Cálculo de métricas estatísticas (média, mediana, moda, desvio padrão, percentis)
